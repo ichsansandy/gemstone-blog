@@ -87,6 +87,38 @@ Clone this repository to your desired folder:
   git clone https://github.com/ichsansandy/gemstone-blog.git
 ```
 
+You need to setup database for these project
+
+```
+  development = gemstone_blog_dev
+  test        = gemstone_blog_test
+  production  = gemstone_blog_prod
+```
+
+or you can use your own database and change the ```config/database.yml```
+
+```yml
+  default: &default
+    adapter: postgresql
+    encoding: unicode
+    pool: 5
+    username: [your_username]
+    password: [your_password]
+    host: localhost
+
+  development:
+    <<: *default
+    database: [your_database_for_development]
+
+  test:
+    <<: *default
+    database: [your_database_for_test]
+
+  production:
+    <<: *default
+    database: [your_database_for_production]
+```
+
 ### Install
 
 Install this project with:
@@ -123,7 +155,6 @@ it will run the all the unit test of these project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-AUTHORS
 
 ## 👥 Author <a name="author"></a>
 
