@@ -20,4 +20,11 @@ class CommentTest < ActiveSupport::TestCase
     comment = Comment.create(user:, text: 'Text')
     assert_not comment.valid?
   end
+
+  test 'should update comments_counter correctly' do
+    user = User.create(name: 'Grace')
+    post = Post.create(author: user, title: 'Test', comment_counter: 0, like_counter: 0)
+    Comment.create(post:, user:, text: 'A comment')
+    assert_equal 1, post.comment_counter
+  end
 end

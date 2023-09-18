@@ -30,20 +30,4 @@ class PostTest < ActiveSupport::TestCase
     post = Post.new(author: user, title: 'Test', comment_counter: 0, like_counter: -1)
     assert_not post.valid?
   end
-
-  test 'should update comments_counter correctly' do
-    user = User.create(name: 'Grace')
-    post = Post.create(author: user, title: 'Test', comment_counter: 0, like_counter: 0)
-    Comment.create(post:, user:, text: 'A comment')
-    post.update_comments_counter
-    assert_equal 1, post.comment_counter
-  end
-
-  test 'should update likes_counter correctly' do
-    user = User.create(name: 'Henry')
-    post = Post.create(author: user, title: 'Test', comment_counter: 0, like_counter: 0)
-    Like.create(post:, user:)
-    post.update_likes_counter
-    assert_equal 1, post.like_counter
-  end
 end

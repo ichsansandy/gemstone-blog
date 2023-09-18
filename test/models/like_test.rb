@@ -20,4 +20,11 @@ class LikeTest < ActiveSupport::TestCase
     like = Like.create(user:)
     assert_not like.valid?
   end
+  
+  test 'should update likes_counter correctly' do
+    user = User.create(name: 'Henry')
+    post = Post.create(author: user, title: 'Test', comment_counter: 0, like_counter: 0)
+    Like.create(post:, user:)
+    assert_equal 1, post.like_counter
+  end
 end
