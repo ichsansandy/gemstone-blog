@@ -1,23 +1,23 @@
 require 'test_helper'
 
 class LikeTest < ActiveSupport::TestCase
-  test "should create valid like" do
+  test 'should create valid like' do
     user = User.create(name: 'Henry')
     post = Post.create(author: user, title: 'Test')
-    like = Like.create(post: post ,user: user)
+    like = Like.create(post:, user:)
     assert like.valid?
   end
 
-  test "should not create like if no user" do
+  test 'should not create like if no user' do
     user = User.create(name: 'Henry')
     post = Post.create(author: user, title: 'Test')
-    like = Like.create(post: post)
+    like = Like.create(post:)
     assert_not like.valid?
   end
 
-  test "should not create like if no post" do
+  test 'should not create like if no post' do
     user = User.create(name: 'Henry')
-    like = Like.create(user: user)
+    like = Like.create(user:)
     assert_not like.valid?
   end
 end
