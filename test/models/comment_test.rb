@@ -1,7 +1,23 @@
 require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should create valid comment" do
+    user = User.create(name: 'Henry')
+    post = Post.create(author: user, title: 'Test')
+    comment = Comment.create(post: post,text: 'Text' ,user: user)
+    assert comment.valid?
+  end
+
+  test "should not create comment if no user" do
+    user = User.create(name: 'Henry')
+    post = Post.create(author: user, title: 'Test')
+    comment = Comment.create(post: post,text: 'Text')
+    assert_not comment.valid?
+  end
+
+  test "should not create comment if no post" do
+    user = User.create(name: 'Henry')
+    comment = Comment.create(user: user,text: 'Text')
+    assert_not comment.valid?
+  end
 end
