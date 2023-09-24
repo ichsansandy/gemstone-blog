@@ -1,15 +1,72 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.body-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+/* users  */
+.user-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  gap: 30px;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px black solid;
+  border-radius: 10px;
+  padding: 15px 30px;
+  width: 100%;
+  min-width: 250px;
+}
+
+.user-card:hover {
+  cursor: pointer;
+  outline: 2px teal solid;
+  outline-offset: 4px;
+  transition: ease-in-out;  
+  .user-photo {
+    filter: none;
+  }
+}
+
+.user-photo {
+  width: 100px;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  border: 1px gray solid;
+  object-fit: cover;
+  filter: grayscale();
+}
+
+.user-card-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+
+.user-name {
+  font-size: 25px;
+  font-weight: 700;
+}
+.user-bio {
+  font-size: 15px;
+  color: gray;
+  font-weight: 200;
+  font-style: italic;
+}
+.user-totalpost {
+  font-size: 15px;
+  text-align: right;
+}
+
+/* utils */
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
