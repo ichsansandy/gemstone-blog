@@ -1,9 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  describe 'GET /index' do
+  describe 'GET /users' do
     it 'returns http success' do
-      get '/users/index'
+      get '/users'
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'GET /users/:id' do
+    it 'returns http success' do
+      get '/users/1'
       expect(response).to have_http_status(:success)
     end
   end
