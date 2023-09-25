@@ -1,3 +1,7 @@
+:root {
+  --border-radius: 16px;
+}
+
 .body-container {
   display: flex;
   justify-content: center;
@@ -5,20 +9,11 @@
 }
 
 /* users  */
-.user-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 650px;
-  gap: 30px;
-  width: 100%;
-}
 
 .user-card {
   display: flex;
   align-items: center;
   gap: 50px;
-
   padding: 15px 30px;
   width: 100%;
   text-decoration: none;
@@ -68,11 +63,43 @@
 
 /* posts */
 
+/* comments */
+
+.comment-container {
+  background-color: #e2e8f0;
+  padding: 5px;
+  border-radius: var(--border-radius);
+  margin: 5px;
+  width: 100%;
+  padding:15px;
+  box-sizing: border-box;
+}
+
+.comment-card {
+  display: flex;
+  flex-direction: column;
+  gap:3px;
+}
+
+.comment-name {
+  font-weight: 700;
+  font-size: large;
+}
+
 /* utils */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 650px;
+  gap: 20px;
+  width: 100%;
+}
 
 .border-card {
   border: 2px black solid;
-  border-radius: 16px;
+  border-radius: var(--border-radius);
 }
 
 .flex-col {
@@ -103,6 +130,10 @@
 
 .gap-0 {
   gap: 0px;
+}
+
+.gap-0-5 {
+  gap: 0.5px;
 }
 
 .gap-1 {

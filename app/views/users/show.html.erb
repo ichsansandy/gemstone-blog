@@ -1,4 +1,4 @@
-<div class="user-container">
+<div class="container">
     <%= render partial: "user", locals: { user: @user } %>
     <div class="user-card gap-0 flex-col items-start border-card">
         <span class="card-title">Bio</span>
@@ -7,7 +7,7 @@
 
     <% if @recent_posts.any? %>
         <% @recent_posts.each do |recent_post| %>
-            <%= render partial: "posts/post_card", locals: { post: recent_post } %>
+            <%= render partial: "posts/post_card", locals: { post: recent_post, comments: nil } %>
         <% end %>
 
         <a 
