@@ -4,14 +4,7 @@
     <span class="user-totalpost w-full">Comments : <%= post.comment_counter %>, Likes : <%= post.like_counter %></span>
             <% if comments.present? %>
                 <% if comments.any? %>
-                    <div class="comment-container flex-col gap-1">
-                        <% comments.each do |comment| %>
-                            <div class="comment-card">
-                                <div class="comment-name" ><%= comment.user.name %></div>
-                                <div ><%= comment.text %></div>
-                            </div>
-                        <% end %>
-                    </div>
+                    <%= render partial: "comment_card", locals: {comments: comments} %>
                 <% else %>
                     <div class="comment-container">
                         <div>No comment</div>
