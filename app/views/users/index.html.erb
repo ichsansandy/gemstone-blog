@@ -1,14 +1,3 @@
-<ul class="user-container">
-  <% @users.each do |user| %>
-    <li class="user-card">
-        <img src=<%= user.photo %> class="user-photo">
-        <div class="user-card-info">
-            <div class="flex-col">
-                <span class="user-name"><%= user.name %></span>
-                <span class="user-bio"><%= user.bio %></span>
-            </div>
-            <span class="user-totalpost">Number of post : <%= user.post_counter %></span>
-        </div>
-    </li>
-  <% end %>
-</ul>
+<div class="user-container">
+    <%= render partial: "user", collection: @users %>
+</div>

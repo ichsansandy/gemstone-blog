@@ -8,26 +8,28 @@
 .user-container {
   display: flex;
   flex-direction: column;
-  max-width: 800px;
+  align-items: center;
+  max-width: 650px;
   gap: 30px;
+  width: 100%;
 }
 
 .user-card {
   display: flex;
   align-items: center;
-  gap: 10px;
-  border: 1px black solid;
-  border-radius: 10px;
+  gap: 50px;
+
   padding: 15px 30px;
   width: 100%;
-  min-width: 250px;
+  text-decoration: none;
+  color: black;
 }
 
 .user-card:hover {
   cursor: pointer;
   outline: 2px teal solid;
   outline-offset: 4px;
-  transition: ease-in-out;  
+  transition: ease-in-out;
   .user-photo {
     filter: none;
   }
@@ -47,26 +49,83 @@
   flex-direction: column;
   width: 100%;
   gap: 8px;
+  height: 90%;
+  justify-content: space-between;
 }
 
-.user-name {
-  font-size: 25px;
-  font-weight: 700;
-}
 .user-bio {
   font-size: 15px;
   color: gray;
   font-weight: 200;
   font-style: italic;
+  margin-top: 3px;
 }
+
 .user-totalpost {
   font-size: 15px;
   text-align: right;
 }
 
+/* posts */
+
 /* utils */
+
+.border-card {
+  border: 2px black solid;
+  border-radius: 16px;
+}
 
 .flex-col {
   display: flex;
   flex-direction: column;
+}
+
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.gap-0 {
+  gap: 0px;
+}
+
+.gap-1 {
+  gap: 10px;
+}
+
+.gap-2 {
+  gap: 20px;
+}
+
+.gap-5 {
+  gap: 50px;
+}
+
+.items-start {
+  align-items: start;
+}
+
+.card-title {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.w-full {
+  width: 100%;
 }
