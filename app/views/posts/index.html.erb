@@ -1,6 +1,6 @@
 <div class="container">
     <%= render partial: "users/user", locals: {user: @user }%>
-    <% @posts.each do |post| %>
+    <% @posts.includes(:author,comments: :user).each do |post| %>
         <%= render partial: "post_card", locals: { post: post, comments: post.recent_comments } %>
     <% end %>
 </div>
