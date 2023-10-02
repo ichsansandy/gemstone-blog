@@ -5,7 +5,7 @@ RSpec.feature 'User Post Index Page' do
   let!(:user) { User.create(name: 'test_user', bio: 'this is bio', photo: 'user1.jpg') }
   let!(:user_comment) { User.create(name: 'John', bio: 'this is bio', photo: 'John.jpg') }
   let!(:post1) { Post.create(author: user, title: 'This is post title', text: 'This is body for testing post') }
-  let!(:comment1) { Comment.create(post: post1, text: 'Comment 1', user: user_comment) }
+  let!(:comment1) { Comment.create(post: post1, text: 'Comment 1 by John', user: user_comment) }
   let!(:comment2) { Comment.create(post: post1, text: 'Comment 2', user: user_comment) }
   let!(:comment3) { Comment.create(post: post1, text: 'Comment 3', user: user_comment) }
   let!(:comment4) { Comment.create(post: post1, text: 'Comment 4', user: user_comment) }
@@ -40,6 +40,18 @@ RSpec.feature 'User Post Index Page' do
     visit user_post_path(user_id: post1.author_id, id: post1.id)
 
     expect(page).to have_content('This is body for testing post')
+  end
+
+  scenario 'Displays commenter of each comment' do
+    visit user_post_path(user_id: post1.author_id, id: post1.id)
+
+    expect(page).to have_content('John')
+  end
+
+  scenario 'Displays comment left by the commenter' do
+    visit user_post_path(user_id: post1.author_id, id: post1.id)
+
+    expect(page).to have_content('Comment 1 by John')
   end
 
   scenario 'Displays post title' do

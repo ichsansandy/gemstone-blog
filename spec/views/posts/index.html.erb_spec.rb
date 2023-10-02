@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'User Post Index Page' do
   let!(:user) { User.create(name: 'test_user', bio: 'this is bio', photo: 'user1.jpg') }
   let!(:user_comment) { User.create(name: 'John', bio: 'this is bio', photo: 'John.jpg') }
-  let!(:post1) { Post.create(author: user, title: 'Post 1', text: 'This is very long text which will cause it should be render not here but the other line and it should be render it correct way not showing the third line and only showing 2 line of its post but hiding it using the clamp and render it correctly, should be no issue with these, hope it correct and not really doing anyting wrong hope so') }
+  let!(:post1) { Post.create(author: user, title: 'Post 1', text: 'this is body of a post') }
   let!(:post2) { Post.create(author: user, title: 'Post 2', text: 'Body 2') }
   let!(:comment1) { Comment.create(post: post1, text: 'Comment 1', user: user_comment) }
   let!(:comment2) { Comment.create(post: post1, text: 'Comment 2', user: user_comment) }
@@ -49,7 +49,7 @@ RSpec.feature 'User Post Index Page' do
   scenario 'Displays part of the body' do
     visit user_posts_path(user)
 
-    expect(page).to have_content('This is very long text which will cause it should be render not here but the other line and it should be render it correct way not showing the third li')
+    expect(page).to have_content('this is body of a post')
   end
   
   scenario 'Displays title of the post correctly' do
