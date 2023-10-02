@@ -2,9 +2,9 @@ require 'rails_helper'
 
 # rubocop:disable Metrics/BlockLength
 RSpec.feature 'User Post Index Page' do
-  let!(:user) { User.create( name: 'test_user', bio: 'this is bio', photo: 'user1.jpg') }
-  let!(:user_comment) { User.create( name: 'John', bio: 'this is bio', photo: 'John.jpg') }
-  let!(:post1) { Post.create( author: user, title: 'This is post title', text: 'This is body for testing post') }
+  let!(:user) { User.create(name: 'test_user', bio: 'this is bio', photo: 'user1.jpg') }
+  let!(:user_comment) { User.create(name: 'John', bio: 'this is bio', photo: 'John.jpg') }
+  let!(:post1) { Post.create(author: user, title: 'This is post title', text: 'This is body for testing post') }
   let!(:comment1) { Comment.create(post: post1, text: 'Comment 1', user: user_comment) }
   let!(:comment2) { Comment.create(post: post1, text: 'Comment 2', user: user_comment) }
   let!(:comment3) { Comment.create(post: post1, text: 'Comment 3', user: user_comment) }
@@ -17,7 +17,6 @@ RSpec.feature 'User Post Index Page' do
 
     # Verify that the user's username is displayed
     expect(page).to have_content(user.name)
-
   end
 
   scenario 'Display right total comment and like' do

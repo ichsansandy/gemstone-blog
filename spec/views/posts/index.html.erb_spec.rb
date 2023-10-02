@@ -1,10 +1,10 @@
 require 'rails_helper'
 # rubocop:disable Metrics/BlockLength
 RSpec.feature 'User Post Index Page' do
-  let!(:user) { User.create( name: 'test_user', bio: 'this is bio', photo: 'user1.jpg') }
-  let!(:user_comment) { User.create( name: 'John', bio: 'this is bio', photo: 'John.jpg') }
-  let!(:post1) { Post.create( author: user, title: 'Post 1', text: 'Body 1') }
-  let!(:post2) { Post.create( author: user, title: 'Post 2', text: 'Body 2') }
+  let!(:user) { User.create(name: 'test_user', bio: 'this is bio', photo: 'user1.jpg') }
+  let!(:user_comment) { User.create(name: 'John', bio: 'this is bio', photo: 'John.jpg') }
+  let!(:post1) { Post.create(author: user, title: 'Post 1', text: 'Body 1') }
+  let!(:post2) { Post.create(author: user, title: 'Post 2', text: 'Body 2') }
   let!(:comment1) { Comment.create(post: post1, text: 'Comment 1', user: user_comment) }
   let!(:comment2) { Comment.create(post: post1, text: 'Comment 2', user: user_comment) }
   let!(:comment3) { Comment.create(post: post1, text: 'Comment 3', user: user_comment) }
