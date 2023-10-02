@@ -51,7 +51,7 @@ RSpec.feature 'User Post Index Page' do
 
     expect(page).to have_content('this is body of a post')
   end
-  
+
   scenario 'Displays title of the post correctly' do
     visit user_posts_path(user)
 
