@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
   load_and_authorize_resource :user
   load_and_authorize_resource :post, through: :user
-  
+
   before_action :set_user, only: %i[index show]
   before_action :set_post, only: %i[show destroy]
-  
+
   def index
     @posts = @user.posts
   end
