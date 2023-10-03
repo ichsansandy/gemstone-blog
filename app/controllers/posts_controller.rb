@@ -14,6 +14,15 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    authorize! :destroy, @post # Ensure user is authorized to delete the post
+    @author = @post.author
+    @author.decrement!(:post_counter)
+    @post.destroy!
+    redirect_to user_posts_path(params[:user_id]), notice: "Post was successfully deleted."
+  end
+
   def create
     @post = current_user.posts.new(post_params)
 
