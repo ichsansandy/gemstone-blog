@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     @author = @post.author
     @author.decrement!(:post_counter)
     @post.destroy!
-    redirect_to user_posts_path(params[:user_id]), notice: "Post was successfully deleted."
+    redirect_to user_posts_path(params[:user_id]), notice: 'Post was successfully deleted.'
   end
 
   def create
