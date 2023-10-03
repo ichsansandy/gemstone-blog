@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     authorize! :destroy, @comment # Ensure user is authorized to delete the comment
     @post.decrement!(:comment_counter)
     @comment.destroy
-    redirect_to user_post_path(params[:user_id], params[:post_id]), notice: "Comment was successfully deleted."
+    redirect_to user_post_path(params[:user_id], params[:post_id]), notice: 'Comment was successfully deleted.'
   end
 
   private
