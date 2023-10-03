@@ -1,5 +1,10 @@
 <a class="user-card gap-0-5 flex-col items-start border-card" href="<%= user_post_path(user_id: post.author_id, id: post.id) %>">
-    <span class="card-title"><%= post.title %></span>
+    <div class="flex justify-between w-full items-center">
+        <span class="card-title"><%= post.title %></span>
+         <% if post && can?(:destroy, post) %>
+            <%= button_to "Delete", delete_post_path(user_id: @user.id, id: post.id), method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
+    </div>
     <span class="user-bio line-clamp-2" style="max-width: 60ch"><%= post.text %></span>
     <span class="user-totalpost w-full">Comments : <%= post.comment_counter %>, Likes : <%= post.like_counter %></span>
             <% if comments.present? %>

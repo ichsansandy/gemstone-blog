@@ -7,12 +7,14 @@
       <span class="card-title">Bio</span>
       <span class="user-bio"><%= @user.bio %></span>
     </div>
-    <a
-      href="<%= user_new_posts_path(user_id: @user.id) %>" 
-      class="border-card user-card justify-center card-title" 
-      style="background-color:black; color:white;">
-      Add New Post
-    </a>
+    <% if current_user == @user%>
+      <a
+        href="<%= user_new_posts_path(user_id: @user.id) %>" 
+        class="border-card user-card justify-center card-title" 
+        style="background-color:black; color:white;">
+        Add New Post
+      </a>
+    <% end %>
   </div>
 
   <% if @recent_posts.any? %>

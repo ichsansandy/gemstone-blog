@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   get "/users/:user_id/posts", to: "posts#index", as: "user_posts"
 
   get '/sign_out_user', to: 'users#sign_out_user', as: 'sign_out_user'
+
+  delete "/users/:user_id/posts/:post_id/comments/:id", to: "comments#destroy", as: "delete_comment"
+  delete "/users/:user_id/posts/:id", to: "posts#destroy", as: "delete_post"
+
 end
