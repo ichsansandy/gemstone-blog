@@ -1,12 +1,15 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource :user
+  load_and_authorize_resource :post, through: :user
+  
+  before_action :set_user, only: [:index, :show]  
+  before_action :set_post, only: [:show, :destroy]  
+  
   def index
-    @user = User.find(params[:user_id])
     @posts = @user.posts
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @post = Post.find(params[:id])
     @comment = Comment.new
   end
 
@@ -15,8 +18,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    authorize! :destroy, @post # Ensure user is authorized to delete the post
     @author = @post.author
     @author.decrement!(:post_counter)
     @post.destroy!
@@ -36,6 +37,14 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
 
   def post_params
     params.require(:post).permit(:title, :text)
