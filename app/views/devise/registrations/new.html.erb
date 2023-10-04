@@ -19,6 +19,11 @@
   </div>
 
   <div class="field regist-field">
+    <%= f.label :role %><br />
+    <%= f.select :role, ["User", "Admin"] %>
+  </div>
+
+  <div class="field regist-field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
